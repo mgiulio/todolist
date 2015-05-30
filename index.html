@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>A todo list app in VanillaJS</title>
+	<meta name="description" content="">
+    <meta name="author" content="mgiulio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" media="all" href="style.css">
+</head>
+
+<body>
+	<section class="app">
+		<header>
+			<div class="toolbar">
+				<span class="counter">no items</span>
+				<button>Filter</button>
+			</div>
+			<form class="add-new">
+				<input type="text" placeholder="What to todo" autofocus>
+			</form>
+		</header>
+		<ul class="todos">
+		</ul>
+		<footer>
+			<p>This is the footer</p>
+		</footer>
+	</section>
+	
+	<script id="tmpl-todo" type="text/x-handlebars-template">
+		<li class="item{{#if this.completed}}completed{{/if}}" id="id-{{this.id}}">
+			<h2 class="title">{{this.title}}</h2>
+			<p class="meta">
+				<span class="id">#{{this.id}}</span>
+			</p>
+			<p class="controls">
+				<input type="checkbox" class="completed-toggle">
+				<button class="delete">Delete</button>
+			</p>
+		</li>
+	</script>
+	
+	<script src="handlebars.js"></script>
+	<script src="todos.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
