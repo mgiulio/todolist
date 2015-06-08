@@ -1,10 +1,26 @@
 {
   "name": "todolist",
   "description": "Unfinished exercise in app dev, with vanillaJS",
-  "author": "mgiulio",
   "version": "1.0.0",
+  "author": {
+    "name": "mgiulio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgiulio/todolist.git"
+  },
+  "homepage": "https://mgiulio.github.io/todolist",
+  "bugs": {
+    "url": "https://github.com/mgiulio/todolist"
+  },
+  "keywords": [
+    "javascript",
+    "css",
+	"appdev"
+  ],
   "main": "app.js",
   "devDependencies": {
-    "grunt-cssnext": "^1.0.0"
+    "grunt-cssnext": "^1.0.0",
+	"cssnext": "^1.6.0"
   }
 }
