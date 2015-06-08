@@ -34,7 +34,12 @@
 				<span class="id">#{{this.id}}</span>
 				<span class="date">Today</span>
 			</p>
-			<input type="checkbox" class="completed-toggle">
+			
+			<div class="item-status-toggle">
+				<input type="checkbox" id="item-status-checkbox-{{this.id}}">
+				<label for="item-status-checkbox-{{this.id}}"><!-- Toggle item status --></label>
+			</div>
+			
 			<button class="delete">X</button>
 		</li>
 	</script>
