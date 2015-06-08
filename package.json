@@ -1,0 +1,10 @@
+{
+  "name": "todolist",
+  "description": "Unfinished exercise in app dev, with vanillaJS",
+  "author": "mgiulio",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "grunt-cssnext": "^1.0.0"
+  }
+}
