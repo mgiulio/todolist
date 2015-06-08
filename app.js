@@ -49,17 +49,14 @@ function onTodosClick(e) {
 	if (e.target.tagName !== 'BUTTON')
 		return;
 	
-	todos.remove(getModelId(getRootEl(e.target)));
+	todos.remove(getModelId(getTarget(e, '.item')));
 }
 
 function onTodosChange(e) {
 	e.stopPropagation();
 	//e.preventDefault();
 	
-	/* if (e.target.tagName !== 'BUTTON')
-		return; */
-	
-	todos.setCompleted(getModelId(getRootEl(e.target)), e.target.checked);
+	todos.setCompleted(getModelId(getTarget(e, '.item')), e.target.checked);
 }
 
 function setupTemplating() {
@@ -112,16 +109,16 @@ function setupTemplating() {
  }
  
  function statusUpdated(id, status) {
-	var el = domNodes.todos.querySelector(`#${getElId(id)}`);
-	var toggleEl = el.querySelector('.controls .completed-toggle');
+	var itemEl = domNodes.todos.querySelector(`#${getElId(id)}`);
+	var checkbox = itemEl.querySelector('.item-status-toggle input[type="checkbox"]');
 	 
 	if (status) {
-		el.classList.add('completed');
-		toggleEl.setAttribute('checked', true);
+		itemEl.classList.add('completed');
+		checkbox.checked = true;
 	}
 	else {
-		el.classList.remove('completed');
-		toggleEl.removeAttribute('checked');
+		itemEl.classList.remove('completed');
+		checkbox.checked = false;
 	}
  }
  
@@ -150,9 +147,15 @@ function setupTemplating() {
 	 return `id-${modelId}`;
  }
  
- function getRootEl(n) {
-	while (!n.classList.contains('item'))
-		n = n.parentNode;
-	return n;
- }
- 
+ function getTarget(e, selector) {
+	var 
+		el = e.target, 
+		root = e.currentTarget,
+		matches = false
+	;
+	
+	while (el != root && !(matches = el.matches(selector)))
+		el = el.parentNode;
+	
+	return matches ? el : null;
+}
