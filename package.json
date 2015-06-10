@@ -16,11 +16,14 @@
   "keywords": [
     "javascript",
     "css",
-	"appdev"
+    "appdev"
   ],
   "main": "app.js",
   "devDependencies": {
+    "cssnext": "^1.6.0",
+    "fs-extra": "^0.18.4",
     "grunt-cssnext": "^1.0.0",
-	"cssnext": "^1.6.0"
+    "rimraf": "^2.4.0",
+    "uglify-js": "^2.4.23"
   }
 }

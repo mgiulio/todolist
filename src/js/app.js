@@ -109,7 +109,7 @@ function setupTemplating() {
  }
  
  function statusUpdated(id, status) {
-	var itemEl = domNodes.todos.querySelector(`#${getElId(id)}`);
+	var itemEl = domNodes.todos.querySelector('#' + getElId(id));
 	var checkbox = itemEl.querySelector('.item-status-toggle input[type="checkbox"]');
 	 
 	if (status) {
@@ -133,7 +133,7 @@ function setupTemplating() {
 			text = '1 item';
 			break;
 		default:
-			text = `${newValue} items`;
+			text = newValue + ' items';
 	}
 	
 	domNodes.counter.innerHTML = text;
@@ -144,7 +144,7 @@ function setupTemplating() {
  }
  
  function getElId(modelId) {
-	 return `id-${modelId}`;
+	 return 'id-' + modelId;
  }
  
  function getTarget(e, selector) {
